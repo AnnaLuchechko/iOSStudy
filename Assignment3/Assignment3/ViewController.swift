@@ -15,9 +15,9 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view.
 	}
 	
-	func countStringCharacters(name: String) -> Int {
-		return 0
-	}
+    func countStringCharacters(name: String) -> Int {
+        return name.count
+    }
 	
 	func checkPatronomic(name: String) -> Bool {
 		return false
