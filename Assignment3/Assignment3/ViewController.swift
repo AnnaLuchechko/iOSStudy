@@ -107,7 +107,9 @@ class ViewController: UIViewController {
 	}
 	
 	func sortArrayAndRemoveDuplicates(input: [Int]) -> [Int] {
-		return []
+        var result: [Int] = input
+        result = Array(Set(result))
+        return result.sorted()
 	}
 	
 	func translite(input: String) -> String {
