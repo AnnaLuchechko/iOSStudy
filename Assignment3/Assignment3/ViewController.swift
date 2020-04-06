@@ -113,8 +113,21 @@ class ViewController: UIViewController {
 	}
 	
 	func translite(input: String) -> String {
-		return ""
-	}
+        var newInput: String = input
+         
+        let russianUpperDict: [String] = ["А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Э", "Ю", "Я"]
+        let englishUpperDict: [String] = ["A", "B", "V", "G", "D", "E", "YO", "ZH", "Z", "I", "Y", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "F", "KH", "TS", "CH", "Sh", "SHCH", "", "Y", "", "E", "Y", "YA"]
+        let russianLowerDict: [String] = ["а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"]
+        let englishLowerDict: [String] = ["a", "b", "v", "g", "d", "e", "yo", "zh", "z", "i", "y", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "f", "kh", "ts", "ch", "sh", "shch", "", "y", "", "e", "yu", "y"]
+         
+        for index in russianUpperDict.indices {
+          newInput = newInput.replacingOccurrences(of: russianUpperDict[index], with: englishUpperDict[index])
+          newInput = newInput.replacingOccurrences(of: russianLowerDict[index], with: englishLowerDict[index])
+        }
+        
+        return newInput
+        
+    }
 	
 	func sortArray(input: [String], searchRequest: String) -> [String] {
 		return []
