@@ -20,6 +20,9 @@ class ViewController: UIViewController {
     }
 	
 	func checkPatronomic(name: String) -> Bool {
+        if name.hasSuffix("ich") || name.hasSuffix("na") {
+            return true
+        }
 		return false
 	}
 	
