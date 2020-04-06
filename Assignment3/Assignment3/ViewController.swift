@@ -130,7 +130,15 @@ class ViewController: UIViewController {
     }
 	
 	func sortArray(input: [String], searchRequest: String) -> [String] {
-		return []
+        var newInput: [String] = []
+        
+        for string in input {
+            if string.contains(searchRequest) {
+                newInput.append(string)
+            }
+        }
+        
+        return newInput
 	}
 	
 	func filterText(input: String, bannedWords: [String]) -> String {
