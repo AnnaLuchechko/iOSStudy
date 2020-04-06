@@ -27,7 +27,15 @@ class ViewController: UIViewController {
 	}
 	
 	func divideCredentials(fullName: String) -> String {
-		return fullName
+        var dividedFullname: String = ""
+        for char in fullName {
+            if char != fullName.first && char.isUppercase  {
+                dividedFullname += " " + String (char)
+            } else {
+                dividedFullname += String(char)
+            }
+        }
+        return dividedFullname
 	}
 	
 	func mirrorString(input: String) -> String {
