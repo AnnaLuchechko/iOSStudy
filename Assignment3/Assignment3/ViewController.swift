@@ -142,7 +142,12 @@ class ViewController: UIViewController {
 	}
 	
 	func filterText(input: String, bannedWords: [String]) -> String {
-		return ""
+        var words = input
+        for bannedWord in bannedWords {
+            let cleanWord = "".padding(toLength: bannedWord.count, withPad: "*", startingAt: 0)
+            words = words.replacingOccurrences(of: "\\b\(bannedWord)\\b", with: cleanWord, options: .regularExpression)
+        }
+        return words
 	}
 
 }
