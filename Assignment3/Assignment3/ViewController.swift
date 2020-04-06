@@ -47,14 +47,25 @@ class ViewController: UIViewController {
 	}
 	
 	func formatNumber(input: String, separator: String) -> String {
-		switch input {
-		case "1234":
-			return "1,234"
-		default:
-			return input
-		}
-		
-		return input
+        var newInput: String = input
+        var insertOffset: Int = -3
+        var insertCount: Int = 0
+        let inserts: Double = Double(input.count / 3)
+        
+        if input.count % 3 > 0 {
+          insertCount = Int(inserts)
+        } else {
+          insertCount = Int(inserts) - 1
+        }
+         
+        if input.count > 3 {
+          for _ in 0..<insertCount {
+            newInput.insert(Character(separator), at: newInput.index(newInput.endIndex, offsetBy: insertOffset))
+            insertOffset = insertOffset - 4
+          }
+        }
+        
+        return newInput
 	}
 	
 	func checkPassword(password: String) -> Int {
