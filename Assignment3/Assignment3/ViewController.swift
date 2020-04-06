@@ -39,7 +39,11 @@ class ViewController: UIViewController {
 	}
 	
 	func mirrorString(input: String) -> String {
-		return input
+        var reversedString: String = ""
+        for char in input {
+            reversedString = String(char) + reversedString
+        }
+        return reversedString
 	}
 	
 	func formatNumber(input: String, separator: String) -> String {
