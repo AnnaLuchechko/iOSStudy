@@ -69,11 +69,41 @@ class ViewController: UIViewController {
 	}
 	
 	func checkPassword(password: String) -> Int {
-		for i in stride(from: 1, to: 10, by: 2).reversed() {
-			print(10 - i)
-		}
-		
-		return 0
+        var mark: Int = 0
+             
+        let lowercaseLetterRegEx = ".*[a-z]+.*"
+        let lowercaseTest = NSPredicate(format:"SELF MATCHES %@", lowercaseLetterRegEx)
+        if lowercaseTest.evaluate(with: password) {
+          print("lowercaseTest")
+          mark += 1
+        }
+         
+        let uppercaseLetterRegEx = ".*[A-Z]+.*"
+        let uppercaseTest = NSPredicate(format:"SELF MATCHES %@", uppercaseLetterRegEx)
+        if uppercaseTest.evaluate(with: password) {
+          print("uppercaseTest")
+          mark += 1
+        }
+         
+        let numberRegEx = ".*[0-9]+.*"
+        let numberTest = NSPredicate(format:"SELF MATCHES %@", numberRegEx)
+        if numberTest.evaluate(with: password) {
+          print("numberTest")
+          mark += 1
+        }
+         
+        let specialCharRegEx = ".*[!&^%$#@()/]+.*"
+        let specialCharTest = NSPredicate(format:"SELF MATCHES %@", specialCharRegEx)
+        if specialCharTest.evaluate(with: password) {
+          print("specialCharTest")
+          mark += 1
+        }
+         
+        if mark > 3 {
+          mark += 1
+        }
+         
+        return mark
 	}
 	
 	func sortArrayAndRemoveDuplicates(input: [Int]) -> [Int] {
